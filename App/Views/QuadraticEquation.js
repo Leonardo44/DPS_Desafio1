@@ -4,7 +4,7 @@ import { TextInput } from "react-native-gesture-handler";
 import ButtonStyle from "../styles/ButtonStyle";
 import FormStyle from "../styles/FormStyle";
 import Separator from "../Components/Separator";
-import { ScrollView } from "react-native-gesture-handler/lib/commonjs";
+import { ScrollView } from "react-native-gesture-handler";
 
 const QuadraticEquation = ({ navigation }) => {
     const [a, onChangeA] = useState();

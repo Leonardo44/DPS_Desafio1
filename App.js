@@ -20,10 +20,10 @@ import {
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Menu from './App/Screens/Menu';
-import Equation from './App/Screens/QuadraticEquation';
-import Salary from './App/Screens/Salary';
-import Numbers from './App/Screens/Numbers';
+import Menu from './App/Views/Menu';
+import Equation from './App/Views/QuadraticEquation';
+import Salary from './App/Views/Salary';
+import Numbers from './App/Views/Numbers';
 
 const Stack = createStackNavigator();
 
