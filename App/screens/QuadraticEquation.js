@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import ButtonStyle from "../styles/ButtonStyle";
 import FormStyle from "../styles/FormStyle";
@@ -13,21 +13,28 @@ const QuadraticEquation = ({ navigation }) => {
     const [x, setX] = useState();
 
     const calculateEquation = e => {
-        let discriminating = Math.pow(b, 2) - (4 * a * c);
-        if (discriminating > 0) {
-            // Two solution
-            let x1 = (-b + Math.pow((Math.pow(b, 2) - (4 * a * c)), 1 / 2)) / (2 * a);
-            let x2 = (-b - Math.pow((Math.pow(b, 2) - (4 * a * c)), 1 / 2)) / (2 * a);
-
-            setX(`x1 = ${x1.toFixed(2)}; x2 = ${x2.toFixed(2)}`);
-        } else if (discriminating == 0) {
-            // One solution
-            let x1 = (-b) / (2 * a);
-            setX(`x = ${x1.toFixed(2)}`);
+        if (isNaN(a) || a === undefined ||
+            isNaN(b) || b === undefined ||
+            isNaN(c) || c === undefined
+        ) {
+            Alert.alert('Ingrese valores válidos');
         } else {
-            // No solution
-            let x1 = (-b) / (2 * a);
-            setX(`No existe solución`);
+            let discriminating = Math.pow(b, 2) - (4 * a * c);
+            if (discriminating > 0) {
+                // Two solution
+                let x1 = (-b + Math.pow((Math.pow(b, 2) - (4 * a * c)), 1 / 2)) / (2 * a);
+                let x2 = (-b - Math.pow((Math.pow(b, 2) - (4 * a * c)), 1 / 2)) / (2 * a);
+
+                setX(`x1 = ${x1.toFixed(2)}; x2 = ${x2.toFixed(2)}`);
+            } else if (discriminating == 0) {
+                // One solution
+                let x1 = (-b) / (2 * a);
+                setX(`x = ${x1.toFixed(2)}`);
+            } else if (discriminating < 0) {
+                // No solution
+                let x1 = (-b) / (2 * a);
+                setX(`No existe solución`);
+            }
         }
     };
 
@@ -41,7 +48,7 @@ const QuadraticEquation = ({ navigation }) => {
                         style={FormStyle.input}
                         onChangeText={onChangeA}
                         value={a}
-                        keyboardType="decimal-pad"
+                        keyboardType="numeric"
                     ></TextInput>
                 </View>
                 <View>
@@ -50,7 +57,7 @@ const QuadraticEquation = ({ navigation }) => {
                         style={FormStyle.input}
                         onChangeText={onChangeB}
                         value={b}
-                        keyboardType="decimal-pad"
+                        keyboardType="numeric"
                     ></TextInput>
                 </View>
                 <View>
@@ -59,7 +66,7 @@ const QuadraticEquation = ({ navigation }) => {
                         style={FormStyle.input}
                         onChangeText={onChangeC}
                         value={c}
-                        keyboardType="decimal-pad"
+                        keyboardType="numeric"
                     ></TextInput>
                 </View>
                 <Separator />

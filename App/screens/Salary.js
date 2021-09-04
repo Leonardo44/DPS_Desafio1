@@ -14,7 +14,7 @@ const Salary = () => {
     const calculateSalary = e => {
         let n = `${name}`
 
-        if ((n.trim() === "") || isNaN(base) || base === undefined || base == 0) {
+        if ((n.trim() === "") || isNaN(base) || base === undefined || base == 0 || base < 0) {
             Alert.alert('Ingrese valores válidos');
         } else {
             let isss = base * 0.03
@@ -45,7 +45,7 @@ const Salary = () => {
                         style={FormStyle.input}
                         onChangeText={onChangeBase}
                         value={base}
-                        keyboardType="decimal-pad"
+                        keyboardType="numeric"
                     ></TextInput>
                 </View>
                 <View>
