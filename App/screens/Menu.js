@@ -1,10 +1,8 @@
 import React from "react";
 import { View, Text, Button, StyleSheet, Alert, TouchableOpacity } from "react-native";
 import { ScrollView } from "react-native-gesture-handler/lib/commonjs";
-
-const Separator = () => (
-    <View style={styles.separator} />
-);
+import Separator from "../Components/Separator";
+import ButtonStyle from "../styles/ButtonStyle";
 
 const Menu = ({ navigation }) => {
     return (
@@ -14,10 +12,10 @@ const Menu = ({ navigation }) => {
                     <Text style={styles.title}>Ejercicio #1</Text>
                     <Text style={styles.decription}>Calculadora de ecuación cuadrática</Text>
                     <TouchableOpacity
-                        style={styles.appButtonContainer}
+                        style={ButtonStyle.appButtonContainer}
                         onPress={() => navigation.navigate('Equation')}
                     >
-                        <Text style={styles.appButtonText}>Abrir</Text>
+                        <Text style={ButtonStyle.appButtonText}>Abrir</Text>
                     </TouchableOpacity>
                 </View>
                 <Separator />
@@ -25,10 +23,10 @@ const Menu = ({ navigation }) => {
                     <Text style={styles.title}>Ejercicio #2</Text>
                     <Text style={styles.decription}>Calculadora de salario neto</Text>
                     <TouchableOpacity
-                        style={styles.appButtonContainer}
+                        style={ButtonStyle.appButtonContainer}
                         onPress={() => navigation.navigate('Salary')}
                     >
-                        <Text style={styles.appButtonText}>Abrir</Text>
+                        <Text style={ButtonStyle.appButtonText}>Abrir</Text>
                     </TouchableOpacity>
                 </View>
                 <Separator />
@@ -36,10 +34,10 @@ const Menu = ({ navigation }) => {
                     <Text style={styles.title}>Ejercicio #3</Text>
                     <Text style={styles.decription}>Calculadora de numero mayor y menor</Text>
                     <TouchableOpacity
-                        style={styles.appButtonContainer}
+                        style={ButtonStyle.appButtonContainer}
                         onPress={() => navigation.navigate('Numbers')}
                     >
-                        <Text style={styles.appButtonText}>Abrir</Text>
+                        <Text style={ButtonStyle.appButtonText}>Abrir</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -64,31 +62,7 @@ const styles = StyleSheet.create({
     decription: {
         textAlign: "center",
         fontSize: 16
-    },
-    separator: {
-        marginVertical: 8,
-        borderBottomColor: '#737373',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-    },
-    appButtonContainer: {
-        marginTop: 8,
-        elevation: 8,
-        backgroundColor: "#145DA0",
-        borderRadius: 8,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        height: 44,
-        flex: 1,
-        justifyContent: 'center',
-    },
-    appButtonText: {
-        fontSize: 16,
-        color: "#fff",
-        fontWeight: "bold",
-        alignSelf: "center",
-        textTransform: "uppercase"
     }
 });
-
 
 export default Menu;
