@@ -41,7 +41,7 @@ const QuadraticEquation = ({ navigation }) => {
                         style={FormStyle.input}
                         onChangeText={onChangeA}
                         value={a}
-                        keyboardType="numeric"
+                        keyboardType="decimal-pad"
                     ></TextInput>
                 </View>
                 <View>
@@ -50,7 +50,7 @@ const QuadraticEquation = ({ navigation }) => {
                         style={FormStyle.input}
                         onChangeText={onChangeB}
                         value={b}
-                        keyboardType="numeric"
+                        keyboardType="decimal-pad"
                     ></TextInput>
                 </View>
                 <View>
@@ -59,7 +59,7 @@ const QuadraticEquation = ({ navigation }) => {
                         style={FormStyle.input}
                         onChangeText={onChangeC}
                         value={c}
-                        keyboardType="numeric"
+                        keyboardType="decimal-pad"
                     ></TextInput>
                 </View>
                 <Separator />
